@@ -18,7 +18,7 @@ gulp.task('css', function () {
 
 // 拷贝图片
 gulp.task('images', function () {
-    gulp.src('../src/styles/images/*.*')
+    gulp.src('../src/styles/images/:.*+')
         .pipe(gulp.dest('../dist/styles/images'));
 });
 

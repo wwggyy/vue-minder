@@ -25,7 +25,7 @@
     "docs": "webpack --config build/webpack.docs.config.js && npm run copy:docs",
     "build:prod": "npm run build:style && webpack --config build/webpack.dist.prod.config.js",
     "build": "rm -fr docs dist && npm run svgo && npm run build:prod && npm run docs",
-    "svgo": "svgo --enable=removeXMLNS  src/components/icon/icons/*.svg",
+    "svgo": "svgo --enable=removeXMLNS  src/components/icon/icons/:.svg+",
     "copy:docs": "cp -r dist/styles docs",
     "copy:example": "cp -r dist/styles examples",
     "copy": "npm run copy:docs && npm run copy:example",
@@ -44,11 +44,11 @@
   },
   "dependencies": {
     "bootstrap": "^3.4.1",
-    "core-js": "^2.4.1",
-    "hotbox": "fex-team/hotbox",
+    "core-js": "^1.4.50",
+    "hotbox": "^0.0.0",
     "kity": "^2.0.4",
-    "kityminder-core": "github:jiangtao/kityminder-core",
-    "vue": "1.0.28"
+    "kityminder-core": "^1.4.50",
+    "vue": "^2.5.13"
   },
   "devDependencies": {
     "autoprefixer-loader": "^2.0.0",
@@ -80,8 +80,8 @@
     "url-loader": "^0.5.7",
     "vue-hot-reload-api": "^1.3.3",
     "vue-html-loader": "^1.2.3",
-    "vue-loader": "^8.5.3",
-    "vue-router": "^0.7.13",
+    "vue-loader": "^9.0.0",
+    "vue-router": "^2.0.0",
     "vue-style-loader": "^1.0.0",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.16.1"

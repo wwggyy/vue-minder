@@ -6,9 +6,9 @@
       <span class="caret"></span>
     </div>
     <ul v-show="show" class="dropdown-menu temp-list">
-      <li v-for="(key, templateObj) in templateList" class="temp-item-wrap">
-        <a @click="changeTemplate(key)" :class="['temp-item', key]" :class="{ 'temp-item-selected' : key == template }"
-           title="{{ key }}"></a>
+      <li v-for="(item, key) in templateList" class="temp-item-wrap">
+        <a @click="changeTemplate(item)" :class="['temp-item', item]" :class="{ 'temp-item-selected' : item === template }"
+           v-bind:title="item"></a>
       </li>
     </ul>
   </div>

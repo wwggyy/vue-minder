@@ -1,13 +1,13 @@
 <template>
   <div class="minder-editor-container">
     <div v-visible="lazy && showTopTab && showTop" class="top-tab minder-top-tab minder__top-tab">
-      <template-list :kityminder="minder" v-ref:template v-visible="lazy && showTemplate" class="template__list inline-directive"></template-list>
-      <theme-list :kityminder="minder" v-ref:theme class="theme-list" v-visible="lazy && showTheme"></theme-list>
-      <search :kityminder="minder" v-ref:search v-visible="lazy" class="search__box"></search>
+      <template-list :kityminder="minder" ref="template" v-visible="lazy && showTemplate" class="template__list inline-directive"></template-list>
+      <theme-list :kityminder="minder" ref="theme" class="theme-list" v-visible="lazy && showTheme"></theme-list>
+      <search :kityminder="minder" ref="search" v-visible="lazy" class="search__box"></search>
       <breadcrumb :unique-index-fn="uniqueIndexFn" v-if="lazy && showBreadcrumb && !enable"
                   class="breadcrumb__box"></breadcrumb>
     </div>
-    <div v-el:editor class="minder-editor"></div>
+    <div el="editor" class="minder-editor"></div>
     <navigator
       @open-top="openTop"
       v-if="lazy && showNavigator"
@@ -127,10 +127,10 @@
         }
       },
     },
-    ready() {
+    mounted() {
       var self = this
       this.$nextTick(() => {
-        var editor = window.editor = new Editor(this.$els.editor);
+        var editor = window.editor = new Editor(this.$refs.editor);
         var importData = this.importData;
         if(typeof importData === 'string') {
           try {

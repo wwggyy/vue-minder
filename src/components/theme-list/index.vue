@@ -1,7 +1,7 @@
 <template>
   <div class="dropdown theme-panel theme__panel">
     <div v-click-out-side="hide" @click="show = !show" class="dropdown-toggle theme-item-selected">
-      <a class="theme-item" :style="themeStyle" :title="value">{{ value | ml 'theme'}}</a>
+      <a class="theme-item" :style="themeStyle" :title="value">{{ value | ml('theme)'}}</a>
       <span class="caret"></span>
     </div>
     <ul v-show="show" class="dropdown-menu theme-list">
@@ -9,9 +9,9 @@
         <a
           @click="changeTheme(key)"
           class="theme-item"
-          :style="getThemeThumbStyle(key)"
-          title="{{ key | ml 'theme' }}"
-        >{{ key | ml 'theme'}}</a>
+            :style="getThemeThumbStyle(key)"
+          v-bind:title="key | ml('theme')"
+        >{{ key | ml('theme')}}</a>
       </li>
     </ul>
   </div>

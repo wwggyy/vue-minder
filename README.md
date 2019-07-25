@@ -26,7 +26,7 @@ npm install vue-minder
   :show-navigator="showNavigator" 
   :enable="enable" :style="style" 
   :import-data="importData" 
-  v-ref:minder>
+  ref="minder">
 </minder>
 ```
 

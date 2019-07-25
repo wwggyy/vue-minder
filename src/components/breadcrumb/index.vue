@@ -1,6 +1,6 @@
 <template>
   <ul class="breadcrumb__list">
-    <li v-for="(index, item) in list">
+    <li v-for="(item, index) in list">
       <span :id="item.data.id" @click="showNode(item, $event)" class="item">{{item.data.name}}</span>
       <span v-if="index !== list.length - 1" class="arrow">&gt;</span>
     </li>
@@ -58,7 +58,7 @@
         lock: false
       };
     },
-    ready() {
+    mounted() {
       this.$nextTick(() => {
         this.minder = window.minder;
         this.minder.on('contentchange', (node) => {
